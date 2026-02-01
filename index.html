@@ -15,41 +15,6 @@
   
 </head>
 <body>
-  <script>
-    (function() {
-      var _warn = console.warn;
-      console.warn = function() {
-        var msg = arguments[0] && String(arguments[0]);
-        if (msg && (msg.indexOf('aria-hidden') !== -1 || msg.indexOf('Blocked') !== -1 || msg.indexOf('assistive technology') !== -1 || msg.indexOf('inert') !== -1 || msg.indexOf('WAI-ARIA') !== -1)) {
-          return;
-        }
-        _warn.apply(console, arguments);
-      };
-    })();
-  </script>
-  <script>
-    (function() {
-      var art = [
-        '',
-        '  _    _            _      _  _                ',
-        ' | |  | |          | |    | |(_)               ',
-        ' | |  | |  ___   __| |  __| | _  _ __    __ _  ',
-        ' | |/\\| | / _ \\ / _` | / _` || || \'_ \\  / _` | ',
-        ' \\  /\\  /|  __/| (_| || (_| || || | | || (_| | ',
-        '  \\/  \\/  \\___| \\__,_| \\__,_||_||_| |_| \\__, | ',
-        '                                         __/ | ',
-        '                                        |___/  ',
-        '',
-        '              한기정  &  방지윤',
-        '              2026.04.18.(토)  오후 4시 00분',
-        '              제주정원',
-        '',
-        '              따뜻한 축복 감사합니다',
-        ''
-      ].join('\n');
-      console.log('%c' + art, 'color: #e91e8c; font-size: 12px; font-family: monospace; line-height: 1.35;');
-    })();
-  </script>
   <div class="invitation-card">
     <h2 class="header-script">Our wedding day</h2>
 
@@ -177,7 +142,7 @@
   <div class="gif-slide">
     <div class="gif-row">
       <div class="gif-column">
-        <img src="/image/groom1.gif" alt="신랑" class="gif-item" loading="lazy" decoding="async" />
+        <img src="image/groom1.gif" alt="신랑" class="gif-item" loading="lazy" decoding="async" />
         <div class="gif-info">
           <p class="gif-info-line">신랑 : 한기정</p>
           <p class="gif-info-line">혈액형 : AB형</p>
@@ -186,7 +151,7 @@
         </div>
       </div>
       <div class="gif-column">
-        <img src="/image/bride1.gif" alt="신부" class="gif-item" loading="lazy" decoding="async" />
+        <img src="image/bride1.gif" alt="신부" class="gif-item" loading="lazy" decoding="async" />
         <div class="gif-info">
           <p class="gif-info-line">신부 : 방지윤</p>
           <p class="gif-info-line">혈액형 : AB형</p>
