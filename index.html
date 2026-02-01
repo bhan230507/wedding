@@ -76,6 +76,8 @@
           
           <a href="#" class="card-gallery-thumb" data-full="image/2.jpg" aria-label="사진 보기"><img src="image/2.jpg" alt="" loading="lazy" /></a>
           
+          <a href="#" class="card-gallery-thumb" data-full="image/20.jpg" aria-label="사진 보기"><img src="image/20.jpg" alt="" loading="lazy" /></a>
+          
           <a href="#" class="card-gallery-thumb" data-full="image/3.jpg" aria-label="사진 보기"><img src="image/3.jpg" alt="" loading="lazy" /></a>
           
           <a href="#" class="card-gallery-thumb" data-full="image/4.jpg" aria-label="사진 보기"><img src="image/4.jpg" alt="" loading="lazy" /></a>
@@ -116,6 +118,8 @@
           <a href="#" class="card-gallery-thumb" data-full="image/19.jpg" aria-label="사진 보기"><img src="image/19.jpg" alt="" loading="lazy" /></a>
           
           <a href="#" class="card-gallery-thumb" data-full="image/2.jpg" aria-label="사진 보기"><img src="image/2.jpg" alt="" loading="lazy" /></a>
+          
+          <a href="#" class="card-gallery-thumb" data-full="image/20.jpg" aria-label="사진 보기"><img src="image/20.jpg" alt="" loading="lazy" /></a>
           
           <a href="#" class="card-gallery-thumb" data-full="image/3.jpg" aria-label="사진 보기"><img src="image/3.jpg" alt="" loading="lazy" /></a>
           
@@ -178,6 +182,10 @@
 그 순간을 소중한 분들과 함께 나누고 싶습니다.
 
 따뜻한 축복으로 함께해 주세요.</p>
+        
+        <p class="message-text-footer">사정 상 가까운 곳에서 예식을 치루지 못해
+양해 부탁드립니다.</p>
+        
       </div>
       <div class="message-floral message-floral-right" aria-hidden="true">
         <svg viewBox="0 0 40 200" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="none"><path d="M20 0 L20 12 Q34 18 28 26 Q20 22 20 12 L20 28 Q6 34 12 42 Q20 38 20 28 L20 44 Q34 50 28 58 Q20 54 20 44 L20 60 Q6 66 12 74 Q20 70 20 60 L20 76 Q34 82 28 90 Q20 86 20 76 L20 92 Q6 98 12 106 Q20 102 20 92 L20 108 Q34 114 28 122 Q20 118 20 108 L20 124 Q6 130 12 138 Q20 134 20 124 L20 140 Q34 146 28 154 Q20 150 20 140 L20 156 Q6 162 12 170 Q20 166 20 156 L20 172 Q34 178 28 186 Q20 182 20 172 L20 200"/></svg>
@@ -186,16 +194,29 @@
   </div>
 
   <div class="account-slide">
-    <h2 class="account-title">마음 전하실 곳</h2>
-    <div class="account-list">
-      <div class="account-row">
-        <p class="account-line">신랑 국민은행 122102-04-198755 한기정</p>
-        <button type="button" class="account-copy" data-copy="국민은행 122102-04-198755 한기정" aria-label="신랑 계좌번호 복사">복사</button>
+    <h2 class="account-title">신랑 & 신부에게 마음 전하기</h2>
+    <p class="account-subtitle">축복의 의미로 축의금을 전달해보세요.</p>
+    <button type="button" class="account-btn-open" id="accountBtnOpen" aria-expanded="false" aria-controls="accountModal">마음 전하기</button>
+  </div>
+
+  <div class="account-modal" id="accountModal" aria-hidden="true">
+    <div class="account-modal-backdrop" id="accountModalBackdrop"></div>
+    <div class="account-modal-box">
+      <button type="button" class="account-modal-close" id="accountModalClose" aria-label="닫기">×</button>
+      <div class="account-modal-content">
+        <h3 class="account-modal-heading">신랑 측 계좌번호</h3>
+        <p class="account-modal-bank">국민은행 (예금주: 한기정)</p>
+        <p class="account-modal-number">122102-04-198755</p>
+        <button type="button" class="account-modal-copy" data-copy="12210204198755" aria-label="신랑 계좌번호 복사">계좌번호 복사</button>
       </div>
-      <div class="account-row">
-        <p class="account-line">신부 국민은행 480401-04-224672 방지윤</p>
-        <button type="button" class="account-copy" data-copy="국민은행 480401-04-224672 방지윤" aria-label="신부 계좌번호 복사">복사</button>
+      <div class="account-modal-divider"></div>
+      <div class="account-modal-content">
+        <h3 class="account-modal-heading">신부 측 계좌번호</h3>
+        <p class="account-modal-bank">국민은행 (예금주: 방지윤)</p>
+        <p class="account-modal-number">480401-04-224672</p>
+        <button type="button" class="account-modal-copy" data-copy="48040104224672" aria-label="신부 계좌번호 복사">계좌번호 복사</button>
       </div>
+      <button type="button" class="account-modal-btn-close" id="accountModalBtnClose">닫기</button>
     </div>
   </div>
   <script>
@@ -215,7 +236,7 @@
           done();
         }
       }
-      document.querySelectorAll('.account-copy').forEach(function(btn) {
+      document.querySelectorAll('.account-modal-copy, .account-copy').forEach(function(btn) {
         btn.addEventListener('click', function() {
           var raw = this.getAttribute('data-copy') || '';
           var numbersOnly = raw.replace(/\D/g, '');
@@ -228,6 +249,29 @@
           });
         });
       });
+      var accountModal = document.getElementById('accountModal');
+      var accountBtnOpen = document.getElementById('accountBtnOpen');
+      var accountModalBackdrop = document.getElementById('accountModalBackdrop');
+      var accountModalClose = document.getElementById('accountModalClose');
+      var accountModalBtnClose = document.getElementById('accountModalBtnClose');
+      if (accountModal && accountBtnOpen) {
+        function openAccountModal() {
+          accountModal.classList.add('is-open');
+          accountModal.setAttribute('aria-hidden', 'false');
+          accountBtnOpen.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeAccountModal() {
+          accountModal.classList.remove('is-open');
+          accountModal.setAttribute('aria-hidden', 'true');
+          accountBtnOpen.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+        accountBtnOpen.addEventListener('click', openAccountModal);
+        if (accountModalBackdrop) accountModalBackdrop.addEventListener('click', closeAccountModal);
+        if (accountModalClose) accountModalClose.addEventListener('click', closeAccountModal);
+        if (accountModalBtnClose) accountModalBtnClose.addEventListener('click', closeAccountModal);
+      }
     })();
   </script>
 
@@ -239,9 +283,7 @@
       <div class="gallery-popup-main-wrap">
         <img src="" alt="" class="gallery-popup-main" id="galleryPopupMain" />
       </div>
-      <div class="gallery-popup-swipe-zone" id="galleryPopupSwipeZone">
-        <p class="gallery-popup-position" id="galleryPopupPosition" aria-live="polite">1 / 1</p>
-      </div>
+      <div class="gallery-popup-swipe-zone" id="galleryPopupSwipeZone"></div>
       <div class="gallery-popup-picker" id="galleryPopupPicker">
         
         <button type="button" class="gallery-popup-picker-thumb" data-url="image/1.jpg" aria-label="이 사진 보기"><img src="image/1.jpg" alt="" loading="lazy" /></button>
@@ -267,6 +309,8 @@
         <button type="button" class="gallery-popup-picker-thumb" data-url="image/19.jpg" aria-label="이 사진 보기"><img src="image/19.jpg" alt="" loading="lazy" /></button>
         
         <button type="button" class="gallery-popup-picker-thumb" data-url="image/2.jpg" aria-label="이 사진 보기"><img src="image/2.jpg" alt="" loading="lazy" /></button>
+        
+        <button type="button" class="gallery-popup-picker-thumb" data-url="image/20.jpg" aria-label="이 사진 보기"><img src="image/20.jpg" alt="" loading="lazy" /></button>
         
         <button type="button" class="gallery-popup-picker-thumb" data-url="image/3.jpg" aria-label="이 사진 보기"><img src="image/3.jpg" alt="" loading="lazy" /></button>
         
@@ -303,24 +347,53 @@
       var currentIndex = 0;
       var touchStartX = 0;
       var focusReturnTarget = null;
+      function getUrlFilename(u) {
+        if (!u) return '';
+        var s = String(u).trim();
+        try { s = new URL(s, location.href).pathname; } catch (e) { s = s.replace(/^\/+/, ''); }
+        var seg = s.split('/').filter(Boolean);
+        return seg.length ? seg[seg.length - 1] : s;
+      }
       function openPopup(url) {
         var wasClosed = !popup.classList.contains('is-open');
         focusReturnTarget = wasClosed ? document.activeElement : focusReturnTarget;
         mainImg.src = url;
-        currentIndex = urls.indexOf(url);
+        var urlFile = getUrlFilename(url);
+        currentIndex = -1;
+        for (var i = 0; i < urls.length; i++) {
+          if (getUrlFilename(urls[i]) === urlFile || urls[i] === url) {
+            currentIndex = i;
+            break;
+          }
+        }
         if (currentIndex < 0) currentIndex = 0;
+        pickerThumbs.forEach(function(btn, i) {
+          btn.classList.toggle('is-active', i === currentIndex);
+        });
         popup.classList.add('is-open');
         popup.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
-        pickerThumbs.forEach(function(btn) {
-          btn.classList.toggle('is-active', btn.getAttribute('data-url') === url);
-        });
-        if (positionEl && urls.length > 0) {
-          positionEl.textContent = (currentIndex + 1) + ' / ' + urls.length;
-        }
         var activeBtn = pickerThumbs[currentIndex];
-        if (activeBtn) {
-          activeBtn.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+        if (activeBtn && picker) {
+          var runScroll = function() {
+            var pickerRect = picker.getBoundingClientRect();
+            var thumbRect = activeBtn.getBoundingClientRect();
+            var pickerWidth = pickerRect.width;
+            var thumbWidth = thumbRect.width;
+            var thumbLeftInView = thumbRect.left - pickerRect.left;
+            var thumbLeftInContent = picker.scrollLeft + thumbLeftInView;
+            var targetScroll = thumbLeftInContent - (pickerWidth / 2) + (thumbWidth / 2);
+            var maxScroll = picker.scrollWidth - pickerWidth;
+            targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
+            picker.scrollLeft = targetScroll;
+          };
+          if (wasClosed) {
+            requestAnimationFrame(function() {
+              requestAnimationFrame(runScroll);
+            });
+          } else {
+            runScroll();
+          }
         }
         if (wasClosed) {
           try { history.pushState({ galleryPopup: true }, '', location.href); } catch (e) {}
